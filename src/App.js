@@ -1,9 +1,13 @@
 import React, {useRef} from 'react';
+import Wrapper from './components/Wrapper.js';
+import Screen from './components/Screen.js';
+import ButtonBox from './components/ButtonBox.js';
+import Button from './components/Button.js';
 
 function App() {
   return (
     <>
-        <div>
+        {/* <div>
         <button>C</button>
         <button>()</button>
         <button>N</button>
@@ -32,7 +36,13 @@ function App() {
         <button>.</button>
         <button>B</button>
         <button>=</button>
-      </div>
+      </div> */}
+
+      {/* <Wrapper>
+        <div>
+          <Screen>Greetings</Screen>
+        </div>
+      </Wrapper> */}
     </>
   );
 }
