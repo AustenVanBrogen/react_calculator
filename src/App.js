@@ -39,10 +39,25 @@ function App() {
       </div> */}
 
       {/* <Wrapper>
-        <div>
-          <Screen>Greetings</Screen>
-        </div>
+          <Screen></Screen>
+          <ButtonBox>
+            <Button>Add</Button>
+          </ButtonBox>
       </Wrapper> */}
+      <wrapper>
+        <Screen value="0" />
+        <ButtonBox>
+          <Button
+          className=""
+          value="Press this button so start the count up"
+          onClick={() =>{
+            console.log("Pressed!");
+          }}>
+
+          </Button>
+        </ButtonBox>
+      </wrapper>
+
     </>
   );
 }
