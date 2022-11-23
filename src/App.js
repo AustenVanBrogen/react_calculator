@@ -5,60 +5,37 @@ import ButtonBox from './components/ButtonBox.js';
 import Button from './components/Button.js';
 
 function App() {
-  return (
-    <>
-        {/* <div>
-        <button>C</button>
-        <button>()</button>
-        <button>N</button>
-        <button>÷</button>
-      </div>
-      <div>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>X</button>
-      </div>
-      <div>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>-</button>
-      </div>
-      <div>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>+</button>
-      </div>
-      <div>
-        <button>0</button>
-        <button>.</button>
-        <button>B</button>
-        <button>=</button>
-      </div> */}
 
-      {/* <Wrapper>
-          <Screen></Screen>
-          <ButtonBox>
-            <Button>Add</Button>
-          </ButtonBox>
-      </Wrapper> */}
-      <wrapper>
+  const btnValues = [
+    ["C", "+-", "%", "/"],
+    [7, 8, 9, "X"],
+    [4, 5, 6, "-"],
+    [1, 2, 3, "+"],
+    [0, ".", "="],
+  ];
+
+  return (
+    // <>
+      <Wrapper>
         <Screen value="0" />
         <ButtonBox>
-          <Button
-          className=""
-          value="Press this button so start the count up"
-          onClick={() =>{
-            console.log("Pressed!");
-          }}>
-
-          </Button>
+          {
+          btnValues.flat().map((btn, i) =>{
+            return(
+            <Button
+            key={i}
+            className={btn === "=" ? "equals" : ""}
+            value={btn}
+            onClick={() =>{
+              console.log("Pressed!");
+            }}>
+            </Button>
+            );
+          })
+        }
         </ButtonBox>
-      </wrapper>
-
-    </>
+      </Wrapper>
+    // </>
   );
 }
 
