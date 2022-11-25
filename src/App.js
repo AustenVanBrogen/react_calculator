@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import Wrapper from './components/Wrapper.js';
 import Screen from './components/Screen.js';
 import ButtonBox from './components/ButtonBox.js';
@@ -6,6 +6,7 @@ import Button from './components/Button.js';
 
 function App() {
 
+  const [screenVal, setScreenVal] = useState("0");
   const btnValues = [
     ["C", "+-", "%", "/"],
     [7, 8, 9, "X"],
@@ -17,7 +18,7 @@ function App() {
   return (
     // <>
       <Wrapper>
-        <Screen value="0" />
+        <Screen value={screenVal} />
         <ButtonBox>
           {
           btnValues.flat().map((btn, i) =>{
@@ -27,7 +28,15 @@ function App() {
             className={btn === "=" ? "equals" : ""}
             value={btn}
             onClick={() =>{
-              console.log("Pressed!");
+              //console.log("Pressed!");
+              //console.log(btn);
+              setScreenVal((prev) =>{
+                if(prev === "0")
+                {
+                  return btn;
+                }
+                return (prev + btn.toString());
+              });
             }}>
             </Button>
             );
