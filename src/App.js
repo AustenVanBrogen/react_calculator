@@ -10,15 +10,14 @@ function App() {
   const [calculated, setCalulated] = useState(false);
   const btnValues = [
     ["C", "+-", "%", "/"],
-    [7, 8, 9, "X"],
+    [7, 8, 9, "*"],
     [4, 5, 6, "-"],
     [1, 2, 3, "+"],
     [0, ".", "="],
   ];
 
   function doCalculation(inputString){
-    console.log("The equals button was pressed");
-    console.log(`The input string was ${inputString}`);
+    return eval(inputString);
   }
   return (
     // <>
@@ -33,8 +32,6 @@ function App() {
             className={btn === "=" ? "equals" : ""}
             value={btn}
             onClick={() =>{
-              //console.log("Pressed!");
-              //console.log(btn);
               setScreenVal((prev) =>{
                 if(btn === "C")
                 {
@@ -43,8 +40,7 @@ function App() {
                 if(btn === "=")
                 {
                   setCalulated(true);
-                  doCalculation(prev);
-                  return "equals was pressed";
+                  return doCalculation(prev);
                 }
                 if(prev === "0")
                 {
