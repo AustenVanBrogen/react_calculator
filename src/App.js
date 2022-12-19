@@ -7,6 +7,7 @@ import Button from './components/Button.js';
 function App() {
 
   const [screenVal, setScreenVal] = useState("0");
+  const [calculated, setCalulated] = useState(false);
   const btnValues = [
     ["C", "+-", "%", "/"],
     [7, 8, 9, "X"],
@@ -15,6 +16,10 @@ function App() {
     [0, ".", "="],
   ];
 
+  function doCalculation(inputString){
+    console.log("The equals button was pressed");
+    console.log(`The input string was ${inputString}`);
+  }
   return (
     // <>
       <Wrapper>
@@ -31,9 +36,24 @@ function App() {
               //console.log("Pressed!");
               //console.log(btn);
               setScreenVal((prev) =>{
+                if(btn === "C")
+                {
+                  return "0"
+                }
+                if(btn === "=")
+                {
+                  setCalulated(true);
+                  doCalculation(prev);
+                  return "equals was pressed";
+                }
                 if(prev === "0")
                 {
                   return btn;
+                }
+                if(calculated === true)
+                {
+                  setCalulated(false);
+                  prev = "";
                 }
                 return (prev + btn.toString());
               });
